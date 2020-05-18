@@ -1,0 +1,24 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "dev:docs": "vuepress dev docs",
+    "build:docs": "vuepress build docs",
+    "deploy": "bash deploy.sh"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "vuepress": "^1.4.1",
+    "vuepress-plugin-cat": "^1.0.3"
+  },
+  "devDependencies": {
+    "sass-loader": "^7.2.0"
+  }
+}
