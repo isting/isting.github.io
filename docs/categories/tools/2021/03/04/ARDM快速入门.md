@@ -1,12 +1,12 @@
 ---
 title: Another Redis Desktop Manager 快速入门
-author: 查尔斯
+author: ting
 date: 2021/03/04 23:19
 categories:
- - 工具四海谈
+  - 工具四海谈
 tags:
- - Redis
- - 管理工具
+  - Redis
+  - 管理工具
 ---
 
 # Another Redis Desktop Manager 快速入门
@@ -26,9 +26,9 @@ OK，本篇笔者就要给童鞋们分享一下这个所谓的 ARDM。
 ## 简介
 
 ::: tip 简介
-Another Redis Desktop Manager，一个更快，更好，更稳定的 Redis 桌面管理器，兼容 Linux, windows, mac。更重要的是，它不会在加载大量的键时崩溃。[1]  
+Another Redis Desktop Manager，一个更快，更好，更稳定的 Redis 桌面管理器，兼容 Linux, windows, mac。更重要的是，它不会在加载大量的键时崩溃。[1]
 
-顾名思义，Another Redis Desktop Manager 就是 另一个 RDM 的意思，它在功能方面和 RDM 大体没什么区别，不过在 UI 和体验上的确更胜一筹。  
+顾名思义，Another Redis Desktop Manager 就是 另一个 RDM 的意思，它在功能方面和 RDM 大体没什么区别，不过在 UI 和体验上的确更胜一筹。
 
 这个项目从 2019 年 2 月份就开始了，开源且免费提供打包版本，更新到今天也不短的时间了，所以关于稳定性的问题就暂时不用担心了。[2]
 :::

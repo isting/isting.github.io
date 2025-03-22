@@ -1,14 +1,14 @@
 ---
 title: 个人常用 Stream 使用技巧
-author: 查尔斯
+author: ting
 date: 2019/12/29 15:00
 isTop: true
 categories:
- - 杂碎逆袭史
+  - 杂碎逆袭史
 tags:
- - Java
- - Stream
- - Lambda
+  - Java
+  - Stream
+  - Lambda
 ---
 
 # 个人常用 Stream 使用技巧 <Badge text="持续更新" type="warning" />
@@ -37,6 +37,3 @@ String result = roleList.stream()
 // 超级管理员,管理员,普通用户
 System.out.println(result);
 ```
-
-
-

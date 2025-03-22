@@ -1,13 +1,13 @@
 ---
 title: Docker 安装 OpenLDAP 详细步骤
-author: 查尔斯
+author: ting
 date: 2022/10/26 20:28
 categories:
- - 杂碎逆袭史
+  - 杂碎逆袭史
 tags:
- - LDAP
- - Docker
- - 容器
+  - LDAP
+  - Docker
+  - 容器
 showComment: false
 ---
 
@@ -81,12 +81,12 @@ docker run -d \
 
 ![202210262026566](../../../../../public/img/2022/10/26/202210262026566.png)
 
-## Docker Compose脚本
+## Docker Compose 脚本
 
 如果你是用的 docker-compose 来安装，下方附上相应 docker-compose.yml 脚本内容。
 
 ```yaml
-version: '3'
+version: "3"
 services:
   openldap:
     container_name: openldap
@@ -111,4 +111,3 @@ services:
 ```shell
 docker-compose up -d
 ```
-

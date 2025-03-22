@@ -1,14 +1,14 @@
 ---
 title: 修改Git所有提交记录中的作者和邮箱
-author: 查尔斯
+author: ting
 date: 2022/03/27 13:00
 categories:
- - 杂碎逆袭史
+  - 杂碎逆袭史
 tags:
- - Git
+  - Git
 ---
 
-# 修改Git所有提交记录中的作者和邮箱
+# 修改 Git 所有提交记录中的作者和邮箱
 
 ## 前言
 
@@ -24,12 +24,12 @@ tags:
 
    ```sh
    #!/bin/sh
-   
+
    git filter-branch --env-filter '
    WRONG_EMAIL="错误的邮箱"
    NEW_NAME="正确的作者名"
    NEW_EMAIL="正确的邮箱"
-   
+
    if [ "$GIT_COMMITTER_EMAIL" = "$WRONG_EMAIL" ]
    then
        export GIT_COMMITTER_NAME="$NEW_NAME"
@@ -47,6 +47,6 @@ tags:
 
 4. 将脚本文件放到要批量修改提交记录的 Git 仓库中（根目录就行）
 
-1. 执行脚本
+5. 执行脚本
 
 随后你就会看到，先是提示一个 warn 警告，然后它会一条条的修改以往提交记录，如果错误的提交比较多，那就耐心等一会儿吧。

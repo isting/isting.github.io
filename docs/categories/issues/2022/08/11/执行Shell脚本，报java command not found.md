@@ -1,15 +1,15 @@
 ---
 title: "执行Shell脚本，报java: command not found"
-author: 查尔斯
+author: ting
 date: 2022/08/11 20:19
 categories:
- - Bug万象集
+  - Bug万象集
 tags:
- - Linux
- - Shell
+  - Linux
+  - Shell
 ---
 
-# 执行Shell脚本，报java: command not found
+# 执行 Shell 脚本，报 java: command not found
 
 ## 问题描述
 
@@ -40,7 +40,7 @@ Java 环境是配置好的，那还得是看脚本自身的问题了。其实，
 Java 启动脚本内容······
 ```
 
-## 解决方案1
+## 解决方案 1
 
 既然以往的经验不能提供帮助，那就对症下药，提示说找不到 java 命令，那说明它识别不到 Java 环境配置，帮它一把就得了呗。复制一份 Java 环境配置，放在脚本内容前，相当于每次执行这个脚本的时候，先做一次临时环境配置。
 
@@ -58,7 +58,7 @@ export JAVA_HOME CLASSPATH PATH
 Java 启动脚本内容······
 ```
 
-## 解决方案2
+## 解决方案 2
 
 这个问题的根源，其实是因为 `/etc/profile` 或者 `/etc/security/limit.d` 这些文件中配置的环境变量仅对通过 pam 登录的用户生效，systemd 系统服务是不读这些配置的，所以这就造成登录到终端时查看环境变量和手动启动应用都一切正常，但是系统服务无法正常启动应用。
 
@@ -88,4 +88,3 @@ WantedBy=multi-user.target
 systemctl daemon-reload
 systemctl restart xxx
 ```
-

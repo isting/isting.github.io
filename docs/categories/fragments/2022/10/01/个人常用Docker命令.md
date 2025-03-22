@@ -1,12 +1,12 @@
 ---
 title: 个人常用 Docker 命令
-author: 查尔斯
+author: ting
 date: 2022/10/01 22:33
 isTop: true
 categories:
- - 杂碎逆袭史
+  - 杂碎逆袭史
 tags:
- - Docker
+  - Docker
 ---
 
 # 个人常用 Docker 命令 <Badge text="持续更新" type="warning" />
@@ -28,13 +28,13 @@ docker search 镜像关键词
 ### 从记录中心拉取镜像到本地
 
 ::: warning 笔者说
-如果镜像名称后不指定 **标签/版本** ，则会默认使用最新版本（latest）。  
+如果镜像名称后不指定 **标签/版本** ，则会默认使用最新版本（latest）。
 
 例如：docker pull tomcat:8.5.0 拉取的就是 8.5.0 版本的 tomcat 镜像，而 docker pull tomcat -> 拉取的实际是 docker pull tomcat:latest，这个 latest 是跟随记录中心中的最新版本变化的，无法确定当前拉取的是哪一个版本。  
 :::
 
 ```shell
-docker pull 镜像名称[:标签/版本] 
+docker pull 镜像名称[:标签/版本]
 ```
 
 ### 删除本地镜像
@@ -49,9 +49,9 @@ docker rmi $(docker images -q)
 ```
 
 ::: tip 笔者说
-`q` 是 quiet 的意思，加上这个参数后，docker images 输出的就不是镜像详细列表了，而是镜像 ID 列表，通常用于编写脚本时使用。  
+`q` 是 quiet 的意思，加上这个参数后，docker images 输出的就不是镜像详细列表了，而是镜像 ID 列表，通常用于编写脚本时使用。
 
-所以，上方删除所有镜像的命令实际是 docker rmi 镜像ID1 镜像ID2...
+所以，上方删除所有镜像的命令实际是 docker rmi 镜像 ID1 镜像 ID2...
 :::
 
 ### 从 Dockerfile 创建镜像
@@ -86,7 +86,7 @@ docker load -i/-input 文件路径.tar
 
 ```shell
 # 查看正在运行的容器
-docker ps  
+docker ps
 
 # 查看全部容器（包含已经停止的）
 docker ps -a
@@ -98,7 +98,7 @@ docker ps [-a] | grep 容器关键词
 ### 创建容器并运行
 
 ::: warning 笔者说
-如果镜像名称后不指定 **标签/版本** ，则会默认使用最新版本（latest）。  
+如果镜像名称后不指定 **标签/版本** ，则会默认使用最新版本（latest）。
 
 如果本地不存在该版本的镜像，则会先从记录中心拉取到本地。
 :::
@@ -136,9 +136,9 @@ docker stop $(docker ps -aq)
 ```
 
 ::: tip 笔者说
-`q` 是 quiet 的意思，加上这个参数后，docker ps 输出的就不是容器详细列表了，而是容器 ID 列表，通常用于编写脚本时使用。  
+`q` 是 quiet 的意思，加上这个参数后，docker ps 输出的就不是容器详细列表了，而是容器 ID 列表，通常用于编写脚本时使用。
 
-所以，上方停止所有容器的命令实际是 docker stop 容器1ID 容器2ID...
+所以，上方停止所有容器的命令实际是 docker stop 容器 1ID 容器 2ID...
 :::
 
 ### 启动容器
@@ -165,9 +165,9 @@ docker rm $(docker ps -aq)
 ```
 
 ::: tip 笔者说
-`q` 是 quiet 的意思，加上这个参数后，docker ps 输出的就不是容器详细列表了，而是容器 ID 列表，通常用于编写脚本时使用。  
+`q` 是 quiet 的意思，加上这个参数后，docker ps 输出的就不是容器详细列表了，而是容器 ID 列表，通常用于编写脚本时使用。
 
-所以，上方删除所有容器的命令实际是 docker rm 容器1ID 容器2ID...
+所以，上方删除所有容器的命令实际是 docker rm 容器 1ID 容器 2ID...
 :::
 
 ### 进入容器内部
@@ -264,7 +264,7 @@ docker version
 docker info
 ```
 
-## docker-compose命令
+## docker-compose 命令
 
 ### 启动并后台运行所有的服务
 
@@ -290,7 +290,7 @@ docker-compose ps
 docker-compose stop 容器名
 ```
 
-###  启动容器
+### 启动容器
 
 ```shell
 docker-compose start 容器名

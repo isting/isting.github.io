@@ -1,39 +1,39 @@
 ---
 title: SQL映射文件之自定义映射元素
-author: 查尔斯
+author: ting
 date: 2020/12/28 00:07
 categories:
- - MyBatis快速入门
+  - MyBatis快速入门
 tags:
- - MyBatis
- - ORM框架
+  - MyBatis
+  - ORM框架
 ---
 
-# SQL映射文件之自定义映射元素
+# SQL 映射文件之自定义映射元素
 
 ## 前言
 
-**C：** 在上一篇，笔者带大家对 MyBatis SQL 映射文件的 insert、update、delete元素做了介绍。到此，CRUD 的基本操作我们就介绍完了。本篇，笔者将带你学习 MyBatis SQL 映射文件的 resultMap 元素，它是 MyBatis 中号称"最强"的元素。有多强？容易令人头秃。
+**C：** 在上一篇，笔者带大家对 MyBatis SQL 映射文件的 insert、update、delete 元素做了介绍。到此，CRUD 的基本操作我们就介绍完了。本篇，笔者将带你学习 MyBatis SQL 映射文件的 resultMap 元素，它是 MyBatis 中号称"最强"的元素。有多强？容易令人头秃。
 
 ![202012281130648](../../../public/img/2020/12/28/202012281130648.jpg)
 
-## resultMap元素
+## resultMap 元素
 
 要介绍 resultMap 元素，那必然要先详细提一下 resultType 属性。
 
-### resultType属性
+### resultType 属性
 
 在 select 元素中，我们一直在使用 resultType 属性，我们可以用它来指定 SQL 查询完后的 ResultSet（结果集）到底映射为哪种类型。
 
-下方的示例中，resultType 代表的就是将查询回来的所有结果数据映射为User类型的对象。
+下方的示例中，resultType 代表的就是将查询回来的所有结果数据映射为 User 类型的对象。
 
 ```xml
 <select id="selectById" resultType="User">
-    select 
+    select
         id, name, age, email
     from
         user
-    where 
+    where
         id = #{id}
 </select>
 ```
@@ -46,9 +46,9 @@ MyBatis 会按照 SQL 查询出的结果数据的列名或别名来映射。
 
 ```xml
 <select id="selectById" resultType="User">
-    select 
+    select
         id, name as username, age, email
-    where 
+    where
         id = #{id}
 </select>
 ```
@@ -66,13 +66,13 @@ MyBatis 会按照 SQL 查询出的结果数据的列名或别名来映射。
 虽然上面的例子不用显式配置 `ResultMap`，但为了讲解，我们来看看如果在刚刚的示例中，显式使用外部的 `resultMap` 会怎样，这也是解决列名不匹配的另外一种方式。[1]
 
 ```xml
-<!-- 
+<!--
     自定义映射
         id属性：resultMap的唯一标识
         type属性：要映射为的Java类型全限定类名或别名
 -->
 <resultMap id="userMap" type="User">
-    <!-- 
+    <!--
         用来映射主键列，可以帮助提高整体性能（建议配置）
             property：Java类型的属性名
             column：结果集的列名或别名
@@ -83,7 +83,7 @@ MyBatis 会按照 SQL 查询出的结果数据的列名或别名来映射。
 </resultMap>
 
 <select id="selectById" resultMap="userMap">
-    select 
+    select
         id, name, age, email
     from
         user
@@ -100,15 +100,15 @@ MyBatis 会按照 SQL 查询出的结果数据的列名或别名来映射。
 
 除了上述简单的自定义映射元素外，在 resultMap 元素中，还有两个用于进行复杂映射的子元素（多表操作）：
 
-- **association** 映射到 JavaBean 的某个“复杂类型”属性，例如：JavaBean类
+- **association** 映射到 JavaBean 的某个“复杂类型”属性，例如：JavaBean 类
 
 - **collection** 映射到 JavaBean 的某个“复杂类型”属性，例如：集合
 
 我们通过两个案例分别体会一下这两个子元素。
 
-#### association案例 
+#### association 案例
 
-**案例需求：根据ID查询用户信息，同时将该用户的角色信息也查询出来。** 
+**案例需求：根据 ID 查询用户信息，同时将该用户的角色信息也查询出来。**
 
 刚才我们做了那么多练习，数据库搞的太乱了，**我们先重置回 MyBatis 第一篇的数据库** ，并做一些数据库上的调整。
 
@@ -178,7 +178,7 @@ public class User {
 </resultMap>
 
 <select id="selectById" resultMap="userMap">
-    select 
+    select
         u.*,
         r.id as rid,
         r.name as rname
@@ -205,7 +205,7 @@ class TestMyBatis {
             UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
             // 执行 SQL
             User user = userMapper.selectById(2L);
-			
+
             System.out.println(user);
             System.out.println(user.getRole());
         } catch (Exception e) {
@@ -216,7 +216,7 @@ class TestMyBatis {
 }
 ```
 
-**控制台输出：** 
+**控制台输出：**
 
 ```sql
 -- 输出的 SQL 语句
@@ -250,9 +250,9 @@ Role [id=1, name=超级管理员]
    Role [id=1, name=超级管理员]
    ```
 
-#### collection案例
+#### collection 案例
 
-**案例需求：根据ID查询用户信息，同时将该用户的联系人列表也查询出来。** 
+**案例需求：根据 ID 查询用户信息，同时将该用户的联系人列表也查询出来。**
 
 我们再来做一些数据库上的调整。
 
@@ -276,7 +276,7 @@ INSERT INTO `linkuser` VALUES (2, '李四', '18822233322', '北京东城区', 2)
 ```java
 /**
  * 联系人 POJO
- * 
+ *
  * @author Charles7c
  */
 public class LinkUser {
@@ -292,7 +292,7 @@ public class LinkUser {
 ```java
 /**
  * 用户 POJO
- * 
+ *
  * @author Charles7c
  */
 public class User {
@@ -327,7 +327,7 @@ public class User {
 </resultMap>
 
 <select id="selectById" resultMap="userMap">
-    select 
+    select
         u.*,
         lku.id as lkuid,
         lku.name as lkuname,
@@ -336,7 +336,7 @@ public class User {
     from
         user u
         left join linkuser lku on u.id = lku.userId
-    where 
+    where
         u.id = #{id}
 </select>
 ```
@@ -357,9 +357,9 @@ class TestMyBatis {
             UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
             // 执行 SQL
             User user = userMapper.selectById(2L);
-			
+
             System.out.println(user);
-			
+
             user.getLinkUserList().forEach(System.out::println);
         } catch (Exception e) {
             e.printStackTrace();
@@ -369,7 +369,7 @@ class TestMyBatis {
 }
 ```
 
-**控制台输出：** 
+**控制台输出：**
 
 ```sql
 -- 输出的 SQL 语句

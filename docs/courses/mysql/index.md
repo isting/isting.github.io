@@ -1,18 +1,18 @@
 ---
 title: MySQL快速入门
-author: 查尔斯
+author: ting
 date: 2022/10/22 21:21
 categories:
- - MySQL快速入门
+  - MySQL快速入门
 tags:
- - MySQL
+  - MySQL
 showArticleMetadata: false
 editLink: false
 lastUpdated: false
 showComment: false
 ---
 
-# MySQL快速入门
+# MySQL 快速入门
 
 ::: tip 未完待续......
 

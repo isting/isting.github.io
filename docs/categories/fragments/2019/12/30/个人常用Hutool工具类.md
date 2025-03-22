@@ -1,17 +1,17 @@
 ---
 title: 个人常用 Hutool 工具类
-author: 查尔斯
+author: ting
 date: 2019/12/30 19:00
 isTop: true
 categories:
- - 杂碎逆袭史
+  - 杂碎逆袭史
 tags:
- - Java
- - Java工具类
- - Hutool
+  - Java
+  - Java工具类
+  - Hutool
 ---
 
-# 个人常用 Hutool工 具类 <Badge text="持续更新" type="warning" />
+# 个人常用 Hutool 工 具类 <Badge text="持续更新" type="warning" />
 
 **C：** 技术圈常说一句：“你要会写轮子，也要会用轮子”。工作的时候，为了提升开发效率，节约开发时间，也常常提醒自己不要重复造 “轮子”。
 
@@ -58,10 +58,10 @@ public static boolean equals(Object a, Object b) {
 
 ### ObjectUtil
 
-在 Java 中，判断不同内容是否相等有多种情况，这在《阿里巴巴Java开发手册》中也有强调，笔者用 ObjectUtil 分别示范下不同情况的使用方法。
+在 Java 中，判断不同内容是否相等有多种情况，这在《阿里巴巴 Java 开发手册》中也有强调，笔者用 ObjectUtil 分别示范下不同情况的使用方法。
 
-::: warning 《阿里巴巴Java开发手册》
-【强制】所有整型包装类对象之间值的比较，全部使用 equals 方法比较。 说明：对于 Integer var = ? 在-128 至 127 之间的赋值，Integer 对象是在 IntegerCache.cache 产生， 会复用已有对象，这个区间内的 Integer 值可以直接使用==进行判断，但是这个区间之外的所有数据，都 会在堆上产生，并不会复用已有对象，这是一个大坑，推荐使用 equals 方法进行判断。 
+::: warning 《阿里巴巴 Java 开发手册》
+【强制】所有整型包装类对象之间值的比较，全部使用 equals 方法比较。 说明：对于 Integer var = ? 在-128 至 127 之间的赋值，Integer 对象是在 IntegerCache.cache 产生， 会复用已有对象，这个区间内的 Integer 值可以直接使用==进行判断，但是这个区间之外的所有数据，都 会在堆上产生，并不会复用已有对象，这是一个大坑，推荐使用 equals 方法进行判断。
 :::
 
 ```java
@@ -74,7 +74,7 @@ System.out.println(ObjectUtil.equal(1L, 1L)); // true
 System.out.println(ObjectUtil.notEqual(1L, 1L)); // false
 ```
 
-**ObjectUtil 的 equal() 源代码，如下：** 
+**ObjectUtil 的 equal() 源代码，如下：**
 
 ```java
 /**
@@ -136,7 +136,7 @@ public static boolean equals(Object obj1, Object obj2) {
 }
 ```
 
-::: warning 《阿里巴巴Java开发手册》
+::: warning 《阿里巴巴 Java 开发手册》
 【强制】BigDecimal 的等值比较应使用 compareTo()方法，而不是 equals()方法。 说明：equals()方法会比较值和精度（1.0 与 1.00 返回结果为 false），而 compareTo() 则会忽略精度。
 
 说明：equals()方法会比较值和精度（1.0 与 1.00 返回结果为 false），而 compareTo()则会忽略精度。
@@ -144,7 +144,7 @@ public static boolean equals(Object obj1, Object obj2) {
 
 诚然，从上方源代码中我们可以清楚地看到 ObjectUtil 比较的时候还区分了 BigDecimal 类型，这也轻松的解决了此强制问题。
 
-**在 ObjectUtil 比较 BigDecimal 类型相等时用到的 NumberUtil 中的 equals() 源代码，如下：** 
+**在 ObjectUtil 比较 BigDecimal 类型相等时用到的 NumberUtil 中的 equals() 源代码，如下：**
 
 ```java
 /**
@@ -167,9 +167,10 @@ public static boolean equals(BigDecimal bigNum1, BigDecimal bigNum2) {
     return 0 == bigNum1.compareTo(bigNum2);
 }
 ```
+
 ### NumberUtil
 
-::: warning 《阿里巴巴Java开发手册》
+::: warning 《阿里巴巴 Java 开发手册》
 
 【强制】浮点数之间的等值判断，基本数据类型不能用==来比较，包装数据类型不能用 equals 来判断。
 
@@ -179,7 +180,7 @@ public static boolean equals(BigDecimal bigNum1, BigDecimal bigNum2) {
 
 1. 指定一个误差范围，两个浮点数的差值在此范围之内，则认为是相等的。
 2. 使用 BigDecimal 来定义值，再进行浮点数的运算操作。
-:::
+   :::
 
 浮点数比较的时候依然可以使用 ObjectUtil，但是也可以直接采用 NumberUtil：
 
@@ -188,7 +189,7 @@ System.out.println(NumberUtil.equals(0.1, 0.1)); // true
 System.out.println(ObjectUtil.equal(BigDecimal.valueOf(0.1), BigDecimal.valueOf(0.1))); // true
 ```
 
-**上方用到的 NumberUtil 的 equals() 源代码，如下：** 
+**上方用到的 NumberUtil 的 equals() 源代码，如下：**
 
 ```java
 /**
@@ -255,7 +256,7 @@ System.out.println("总耗时：" + timer.interval() + "ms");
 // ...
 ```
 
-## UUID生成器
+## UUID 生成器
 
 ### 传统用法
 
@@ -274,8 +275,8 @@ System.out.println(replaceUuidStr); // 7f4c0b42d0664baabc244d74a69ea78e
 
 ### IdUtil
 
-::: tip Hutool文档
-Hutool重写了java.util.UUID的逻辑，对应类为cn.hutool.core.lang.UUID，使生成不带-的UUID字符串不再需要做字符替换，性能提升一倍左右。
+::: tip Hutool 文档
+Hutool 重写了 java.util.UUID 的逻辑，对应类为 cn.hutool.core.lang.UUID，使生成不带-的 UUID 字符串不再需要做字符替换，性能提升一倍左右。
 :::
 
 ```java
@@ -287,12 +288,12 @@ System.out.println(simpleUuidStr); // 6905bc8239c1489a9f6fb18cee1d6884
 // ...
 ```
 
-## 获取Spring
+## 获取 Spring
 
 ### SpringUtil
 
-::: tip Hutool文档
-使用Spring Boot时，通过依赖注入获取bean是非常方便的，但是在工具化的应用场景下，想要动态获取bean就变得非常困难，于是Hutool封装了Spring中Bean获取的工具类——SpringUtil。
+::: tip Hutool 文档
+使用 Spring Boot 时，通过依赖注入获取 bean 是非常方便的，但是在工具化的应用场景下，想要动态获取 bean 就变得非常困难，于是 Hutool 封装了 Spring 中 Bean 获取的工具类——SpringUtil。
 :::
 
 要使用 SpringUtil，首先要完成两个操作。
@@ -333,12 +334,12 @@ String activeProfile = SpringUtil.getProperty("spring.profiles.active");
 单是能快速帮你创建指定初始容量大小的 Map 集合这一点就爱了。
 :::
 
-::: warning 《阿里巴巴Java开发手册》
-【推荐】 集合初始化时， 指定集合初始值大小。  
+::: warning 《阿里巴巴 Java 开发手册》
+【推荐】 集合初始化时， 指定集合初始值大小。
 
-说明： HashMap 使用 HashMap(int initialCapacity) 初始化，如果暂时无法确定集合大小， 那么指定默认值（ 16） 即可。  
+说明： HashMap 使用 HashMap(int initialCapacity) 初始化，如果暂时无法确定集合大小， 那么指定默认值（ 16） 即可。
 
-正例： initialCapacity = (需要存储的元素个数 / 负载因子) + 1。 注意负载因子（即 loader factor） 默认为 0.75，如果暂时无法确定初始值大小，请设置为 16（即默认值） 。  
+正例： initialCapacity = (需要存储的元素个数 / 负载因子) + 1。 注意负载因子（即 loader factor） 默认为 0.75，如果暂时无法确定初始值大小，请设置为 16（即默认值） 。
 
 反例： HashMap 需要放置 1024 个元素，由于没有设置容量初始大小，随着元素增加而被迫不断扩容，
 resize()方法总共会调用 8 次，反复重建哈希表和数据迁移。当放置的集合元素个数达千万级时会影响程序
@@ -373,7 +374,7 @@ HashMap<Object, Object> map7 = MapUtil.newHashMap(2, true);
 // ...
 ```
 
-**MapUtil 的 newHashMap() 源代码，如下：** 
+**MapUtil 的 newHashMap() 源代码，如下：**
 
 ```java
 /**

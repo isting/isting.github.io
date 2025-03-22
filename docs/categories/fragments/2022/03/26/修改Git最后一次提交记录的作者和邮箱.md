@@ -1,14 +1,14 @@
 ---
 title: 修改Git最后一次提交记录的作者和邮箱
-author: 查尔斯
+author: ting
 date: 2022/03/26 10:30
 categories:
- - 杂碎逆袭史
+  - 杂碎逆袭史
 tags:
- - Git
+  - Git
 ---
 
-# 修改Git最后一次提交记录的作者和邮箱
+# 修改 Git 最后一次提交记录的作者和邮箱
 
 ## 前言
 

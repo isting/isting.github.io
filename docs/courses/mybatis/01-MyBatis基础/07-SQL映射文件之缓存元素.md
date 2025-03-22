@@ -1,23 +1,23 @@
 ---
 title: SQL映射文件之缓存元素
-author: 查尔斯
+author: ting
 date: 2020/12/28 00:17
 categories:
- - MyBatis快速入门
+  - MyBatis快速入门
 tags:
- - MyBatis
- - ORM框架
+  - MyBatis
+  - ORM框架
 ---
 
-# SQL映射文件之缓存元素
+# SQL 映射文件之缓存元素
 
 ## 前言
 
-**C：**  在上一篇，笔者带大家对 MyBatis SQL 映射文件的 resultMap 元素做了介绍，它大概是 MyBatis 学习中第一个 "坎儿"，没跨过来的同学也没关系，慢慢来，切勿急躁，先看看本篇再说。本篇，笔者将带你学习 MyBatis SQL 映射文件的 cache 元素。
+**C：** 在上一篇，笔者带大家对 MyBatis SQL 映射文件的 resultMap 元素做了介绍，它大概是 MyBatis 学习中第一个 "坎儿"，没跨过来的同学也没关系，慢慢来，切勿急躁，先看看本篇再说。本篇，笔者将带你学习 MyBatis SQL 映射文件的 cache 元素。
 
 cache 即缓存，任何应用都不可缺少的一个组成部分，但凡想提升性能，缓存就得拿出来说道说道。MyBatis 中自然也少不了缓存的存在，下面我们去看看吧。
 
-## cache元素
+## cache 元素
 
 cache 元素，是用于开启 MyBatis 二级缓存的关键。在 MyBatis 中缓存分为一级缓存和二级缓存 。
 
@@ -42,7 +42,7 @@ class TestMyBatis {
 
             // 获取 Mapper 接口
             UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
-			
+
             // 执行不同 SQL
             List<User> userList1 = userMapper.selectList();
             List<User> userList2 = userMapper.selectByName("J");
@@ -90,7 +90,7 @@ class TestMyBatis {
 **二级缓存是指 mapper 映射文件。** 二级缓存的作用域是同一个 namespace 下的 mapper 映射文件内容，**多个 SqlSession 之间是共享的** 。
 
 ::: warning 笔者说
-可以通过核心配置文件中的 settings 元素的 cacheEnabled 对所有二级缓存进行全局性开/关设置（默认值为true）。
+可以通过核心配置文件中的 settings 元素的 cacheEnabled 对所有二级缓存进行全局性开/关设置（默认值为 true）。
 :::
 
 ```xml
@@ -128,14 +128,14 @@ class TestMyBatis {
 
 **eviction** 代表缓存清除策略：（默认的清除策略是 LRU）
 
-- `LRU`  最近最少使用：移除最长时间不被使用的对象  
-- `FIFO`  先进先出：按对象进入缓存的顺序来移除它们 
-- `SOFT`  软引用：基于垃圾回收器状态和软引用规则移除对象     
-- `WEAK` – 弱引用：更积极地基于垃圾收集器状态和弱引用规则移除对象。          
+- `LRU` 最近最少使用：移除最长时间不被使用的对象
+- `FIFO` 先进先出：按对象进入缓存的顺序来移除它们
+- `SOFT` 软引用：基于垃圾回收器状态和软引用规则移除对象
+- `WEAK` – 弱引用：更积极地基于垃圾收集器状态和弱引用规则移除对象。
 
-**flushInterval** 代表缓存刷新间隔：（默认情况是不设置，也就是没有刷新间隔，缓存仅仅会在调用语句时刷新）它的属性值可以被设置为任意的正整数，设置的值应该是一个以毫秒为单位的合理时间量。        
+**flushInterval** 代表缓存刷新间隔：（默认情况是不设置，也就是没有刷新间隔，缓存仅仅会在调用语句时刷新）它的属性值可以被设置为任意的正整数，设置的值应该是一个以毫秒为单位的合理时间量。
 
-**size** 代表可以缓存的对象引用数目：（默认值是 1024）它的属性值可以被设置为任意正整数，但要注意欲缓存对象的大小和运行环境中可用的内存资源。        
+**size** 代表可以缓存的对象引用数目：（默认值是 1024）它的属性值可以被设置为任意正整数，但要注意欲缓存对象的大小和运行环境中可用的内存资源。
 
 **readOnly** 代表缓存中的对象是否只读：（默认值是 false），它的属性值可以被设置为 true 或 false。只读的缓存会给所有调用者返回缓存对象的相同实例，因此这些对象不能被修改，这就提供了可观的性能提升。而可读写的缓存会（通过序列化）返回缓存对象的拷贝，速度上会慢一些，但是更安全（ **建议** ）。
 
@@ -156,7 +156,7 @@ class TestMyBatis {
             List<User> userList1 = userMapper1.selectList();
             // 【执行关闭操作，将 SqlSession 中的数据写到二级缓存区域】
             sqlSession1.close();
-			
+
             // 获取SqlSession对象
             SqlSession sqlSession2 = MyBatisUtils.openSession();
             // 执行
@@ -181,11 +181,11 @@ public class User implements Serializable{
 }
 ```
 
-再测试之后，控制台输出如下，Cache Hit Ratio 表示缓存命中率，开启二级缓存后，每执行一次查询，系统都会计算一次二级缓存的命中率。第一次查询也是先从缓存中查询，只不过缓存中一定是没有的，所以命中率为0，然后再从DB中查询后缓存到二级缓存中。第二次查询的时候是从二级缓存中读取的，这一次的命中率为1/2=0.5。 当然，若有第三次查询，则命中率为1/3=0.66 ，依此类推。[3]
+再测试之后，控制台输出如下，Cache Hit Ratio 表示缓存命中率，开启二级缓存后，每执行一次查询，系统都会计算一次二级缓存的命中率。第一次查询也是先从缓存中查询，只不过缓存中一定是没有的，所以命中率为 0，然后再从 DB 中查询后缓存到二级缓存中。第二次查询的时候是从二级缓存中读取的，这一次的命中率为 1/2=0.5。 当然，若有第三次查询，则命中率为 1/3=0.66 ，依此类推。[3]
 
 ![202012281139540](../../../public/img/2020/12/28/202012281139540.png)
 
-## cache-ref元素
+## cache-ref 元素
 
 当我们想要在多个命名空间中共享相同的缓存配置和实例时，cache-ref 元素就可以派上用场了，当同时使用了 cache 元素和 cache-ref 元素时，cache 元素的优先级更高。
 
@@ -203,9 +203,9 @@ public class User implements Serializable{
 
 [1]MyBatis 官网. XML 映射文件[EB/OL]. https://mybatis.org/mybatis-3/zh/sqlmap-xml.html. 2020-12-26
 
-[2]花好夜猿. Mybatis【面试题】讲讲Mybatis的缓存-简答[EB/OL]. https://blog.csdn.net/qq_23202687/article/details/103708458. 2019-12-26
+[2]花好夜猿. Mybatis【面试题】讲讲 Mybatis 的缓存-简答[EB/OL]. https://blog.csdn.net/qq_23202687/article/details/103708458. 2019-12-26
 
-[3]陈浩翔. 你真的懂Mybatis缓存机制吗[EB/OL]. https://mp.weixin.qq.com/s/h2x15k71rClaHjcz7u2dlQ. 2018-07-10
+[3]陈浩翔. 你真的懂 Mybatis 缓存机制吗[EB/OL]. https://mp.weixin.qq.com/s/h2x15k71rClaHjcz7u2dlQ. 2018-07-10
 
 ## 后记
 

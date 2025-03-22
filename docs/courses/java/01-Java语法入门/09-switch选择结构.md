@@ -1,15 +1,15 @@
 ---
 title: switch选择结构
-author: 查尔斯
+author: ting
 date: 2020/10/07 15:30
 categories:
- - Java基础快速入门
+  - Java基础快速入门
 tags:
- - Java
- - Java基础
+  - Java
+  - Java基础
 ---
 
-# switch选择结构
+# switch 选择结构
 
 ## 前言
 
@@ -23,7 +23,7 @@ tags:
 
 有了 if ，为什么还要学习使用 switch 选择结构呢？一起来看个案例。
 
-**案例需求：小杨参加了创造502节目。** 
+**案例需求：小杨参加了创造 502 节目。**
 
 - 如果获得第一名，将会担任《诛仙》女主角
 - 如果获得第二名，将会担任《斗罗大陆》女主角
@@ -117,13 +117,13 @@ switch (score) {
 
 3. 建议加上一个 `default` 来进行默认处理。
 
-4. `switch` 的表达式支持的类型有：`int`、( `short`、 `byte`、`char` 可以自动类型转换为 `int`)，`枚举类型(Enum)` 、`String`（自JDK1.7开始，`switch` 支持了字符串的等值判断，参考[Oracle Java7 RELEASE介绍](https://docs.oracle.com/javase/7/docs/technotes/guides/language/strings-switch.html)）。
+4. `switch` 的表达式支持的类型有：`int`、( `short`、 `byte`、`char` 可以自动类型转换为 `int`)，`枚举类型(Enum)` 、`String`（自 JDK1.7 开始，`switch` 支持了字符串的等值判断，参考[Oracle Java7 RELEASE 介绍](https://docs.oracle.com/javase/7/docs/technotes/guides/language/strings-switch.html)）。
 
    ![202010071312989](../../../public/img/2020/10/07/202010071312989.png)
 
    ![202010071315171](../../../public/img/2020/10/07/202010071315171.png)
 
-## switch和if的对比
+## switch 和 if 的对比
 
 到此为止，Java 中的选择结构我们就学习完了，别看语法挺多，论派系的话只有两个，一个是 `if`，一个是`switch`，而且 `switch` 和 `多重if` 也很相像，理解起来也比较容易了。
 

@@ -1,14 +1,14 @@
 ---
 title: Docker 设置网络代理
-author: 查尔斯
+author: ting
 date: 2022/10/29 19:50
 categories:
- - Bug万象集
+  - Bug万象集
 tags:
- - Docker
- - Linux
- - CentOS
- - 网络代理
+  - Docker
+  - Linux
+  - CentOS
+  - 网络代理
 ---
 
 # Docker 设置网络代理

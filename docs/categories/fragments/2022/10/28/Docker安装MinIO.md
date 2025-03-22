@@ -1,13 +1,13 @@
 ---
 title: Docker 安装 MinIO 详细步骤
-author: 查尔斯
+author: ting
 date: 2022/10/28 22:37
 categories:
- - 杂碎逆袭史
+  - 杂碎逆袭史
 tags:
- - MinIO
- - Docker
- - 容器
+  - MinIO
+  - Docker
+  - 容器
 showComment: false
 ---
 
@@ -75,7 +75,7 @@ server --address ':9000' --console-address ':9001' /data \
 
 ## 验证
 
-服务器开放好相应端口或设置好安全组规则后，访问 `http://宿主机IP:映射的端口` （例如按上方配置那就是：http://宿主机IP:9001）即可看到 MinIO 管理界面。
+服务器开放好相应端口或设置好安全组规则后，访问 `http://宿主机IP:映射的端口` （例如按上方配置那就是：http://宿主机 IP:9001）即可看到 MinIO 管理界面。
 
 ![202210282235156](../../../../../public/img/2022/10/28/202210282235156.png)
 
@@ -83,12 +83,12 @@ server --address ':9000' --console-address ':9001' /data \
 
 ![202210282236211](../../../../../public/img/2022/10/28/202210282236211.png)
 
-## Docker Compose脚本
+## Docker Compose 脚本
 
 如果你是用的 docker-compose 来安装，下方附上相应 docker-compose.yml 脚本内容。
 
 ```yaml
-version: '3'
+version: "3"
 services:
   minio:
     container_name: minio
@@ -102,11 +102,11 @@ services:
       #MINIO_SERVER_URL: 'https://xxx.com:9000'
       #MINIO_BROWSER_REDIRECT_URL: 'https://xxx.com:9001'
       # 开启压缩 on 开启 off 关闭
-      MINIO_COMPRESS: 'off'
+      MINIO_COMPRESS: "off"
       # 扩展名 .pdf,.doc 为空 所有类型均压缩
-      MINIO_COMPRESS_EXTENSIONS: ''
+      MINIO_COMPRESS_EXTENSIONS: ""
       # mime 类型 application/pdf 为空 所有类型均压缩
-      MINIO_COMPRESS_MIME_TYPES: ''
+      MINIO_COMPRESS_MIME_TYPES: ""
     ports:
       - 9000:9000
       - 9001:9001
@@ -122,4 +122,3 @@ services:
 ```shell
 docker-compose up -d
 ```
-

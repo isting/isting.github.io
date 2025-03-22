@@ -1,13 +1,13 @@
 ---
 title: 个人常用 SQL 函数
-author: 查尔斯
+author: ting
 date: 2022/02/16 15:43
 isTop: true
 categories:
- - 杂碎逆袭史
+  - 杂碎逆袭史
 tags:
- - SQL
- - SQL函数
+  - SQL
+  - SQL函数
 ---
 
 # 个人常用 SQL 函数 <Badge text="持续更新" type="warning" />
@@ -63,7 +63,7 @@ TRUNCATE TABLE 表名;
    ```shell
    SELECT
      CONCAT('TRUNCATE TABLE ', TABLE_NAME, ';')
-   FROM 
+   FROM
      information_schema.TABLES
    WHERE TABLE_SCHEMA = '数据库名';
    ```
@@ -85,7 +85,7 @@ DROP TABLE 表名;
    ```shell
    SELECT
      CONCAT('DROP TABLE IF EXISTS ', TABLE_NAME, ';')
-   FROM 
+   FROM
      information_schema.TABLES
    WHERE TABLE_SCHEMA = '数据库名';
    ```

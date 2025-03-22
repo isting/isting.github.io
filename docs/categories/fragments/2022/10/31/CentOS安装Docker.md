@@ -1,13 +1,13 @@
 ---
 title: CentOS 安装 Docker、Docker Compose
-author: 查尔斯
+author: ting
 date: 2022/10/31 20:56
 categories:
- - 杂碎逆袭史
+  - 杂碎逆袭史
 tags:
- - Docker
- - Linux
- - CentOS
+  - Docker
+  - Linux
+  - CentOS
 ---
 
 # CentOS 安装 Docker、Docker Compose
@@ -75,16 +75,16 @@ curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun && systemctl 
 
 ## Docker 配置
 
-在 Windows 系统中安装软件时，我们都清楚要尽量不安装在 C 盘，数据存储也尽量迁移到其他空间更大的盘。不然随着程序的使用，数据越来越多，再加上大多数情况下 C 盘空间并不大，最终导致 C 盘很快会被占满。   
+在 Windows 系统中安装软件时，我们都清楚要尽量不安装在 C 盘，数据存储也尽量迁移到其他空间更大的盘。不然随着程序的使用，数据越来越多，再加上大多数情况下 C 盘空间并不大，最终导致 C 盘很快会被占满。
 
-同理，不更改 docker 的数据存储目录，那它的镜像、容器等存储占用随着使用时间的增长而增长，那你的服务器系统盘很快就会被占满了。所以建议你将 docker 的数据存储目录改到你服务器的数据盘挂载目录。    
+同理，不更改 docker 的数据存储目录，那它的镜像、容器等存储占用随着使用时间的增长而增长，那你的服务器系统盘很快就会被占满了。所以建议你将 docker 的数据存储目录改到你服务器的数据盘挂载目录。
 
 更改 docker 数据存储目录这一点是笔者推荐的，而设置 docker 镜像加速这一点其实根本无需笔者多言，你先不配置，用用 docker 再说，如果你 `docker pull` 速度很快，那完全不需要配置。这三个镜像加速源是笔者验证过的，当你感受到拉镜像的 “绝望” 时，不妨再来配置试一试。
 
 ::: tip 笔者说
-关于镜像加速地址，你还可以从阿里云找到你专属的镜像加速地址。  
+关于镜像加速地址，你还可以从阿里云找到你专属的镜像加速地址。
 
-按下面的路径就可以找到：  
+按下面的路径就可以找到：
 
 产品与服务 -> 容器与中间件 -> 容器服务 -> 容器镜像服务 -> 镜像加速器
 :::
@@ -98,7 +98,7 @@ curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun && systemctl 
    ```shell
    # 如果 /etc 下没有 docker 目录，可以先创建一下
    # mkdir -p /etc/docker
-   
+
    vim /etc/docker/daemon.json
    ```
 

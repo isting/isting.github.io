@@ -1,15 +1,15 @@
 ---
 title: "Nginx转发请求，报13：Permission denied错误"
-author: 查尔斯
+author: ting
 date: 2022/09/05 21:44
 categories:
- - Bug万象集
+  - Bug万象集
 tags:
- - Linux
- - Nginx
+  - Linux
+  - Nginx
 ---
 
-#  Nginx转发请求，报13：Permission denied错误
+# Nginx 转发请求，报 13：Permission denied 错误
 
 ## 问题描述
 
@@ -18,7 +18,7 @@ tags:
 赶紧去测试地址看了一下，发现验证码接口 Nginx 502 了，首先想到的就是后端服务宕了，登上测试环境看了看，人家跑得欢快的很啊，程序日志里也没出现什么错误。
 
 ::: tip 笔者说
-HTTP 状态码 502：表示作为网关或代理角色的服务器，从上游服务器（如tomcat、php-fpm）中接收到的响应是无效的。
+HTTP 状态码 502：表示作为网关或代理角色的服务器，从上游服务器（如 tomcat、php-fpm）中接收到的响应是无效的。
 :::
 
 既然错误不在后端服务，那就顺着调用链路往前排查看看，打开 Nginx 错误日志，看看究竟是什么原因导致的 502。
@@ -81,7 +81,7 @@ nginx -s reload
 
 这一搜啊，有一个搜索结果摘要引起了笔者的注意：
 
-> **解决SELinux阻止Nginx访问服务** 
+> **解决 SELinux 阻止 Nginx 访问服务**
 >
 > “在使用 yum 安装 nginx 后可能会出现配置完成后却无法访问的问题”。[1]
 
@@ -107,4 +107,4 @@ setsebool -P httpd_can_network_connect 1
 
 ## 参考资料
 
-[1]解决SELinux阻止Nginx访问服务：https://blog.csdn.net/liweitao7610/article/details/107073852
+[1]解决 SELinux 阻止 Nginx 访问服务：https://blog.csdn.net/liweitao7610/article/details/107073852

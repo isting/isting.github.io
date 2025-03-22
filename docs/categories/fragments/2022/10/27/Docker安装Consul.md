@@ -1,13 +1,13 @@
 ---
 title: Docker 安装 Consul 详细步骤
-author: 查尔斯
+author: ting
 date: 2022/10/27 22:00
 categories:
- - 杂碎逆袭史
+  - 杂碎逆袭史
 tags:
- - Consul
- - Docker
- - 容器
+  - Consul
+  - Docker
+  - 容器
 showComment: false
 ---
 
@@ -60,14 +60,14 @@ docker run -d \
 
 ## 验证
 
-服务器开放好相应端口或设置好安全组规则后，访问 `http://宿主机IP:映射的端口` （例如按上方配置那就是：http://宿主机IP:18500）即可看到 Consul 界面。
+服务器开放好相应端口或设置好安全组规则后，访问 `http://宿主机IP:映射的端口` （例如按上方配置那就是：http://宿主机 IP:18500）即可看到 Consul 界面。
 
-## Docker Compose脚本
+## Docker Compose 脚本
 
 如果你是用的 docker-compose 来安装，下方附上相应 docker-compose.yml 脚本内容。
 
 ```yaml
-version: '3'
+version: "3"
 services:
   consul:
     container_name: consul

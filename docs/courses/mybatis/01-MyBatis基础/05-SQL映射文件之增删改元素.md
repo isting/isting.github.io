@@ -1,25 +1,25 @@
 ---
 title: SQL映射文件之增删改元素
-author: 查尔斯
+author: ting
 date: 2020/12/27 23:55
 categories:
- - MyBatis快速入门
+  - MyBatis快速入门
 tags:
- - MyBatis
- - ORM框架
+  - MyBatis
+  - ORM框架
 ---
 
-# SQL映射文件之增删改元素
+# SQL 映射文件之增删改元素
 
 ## 前言
 
-**C：** 在上一篇，笔者带大家对 MyBatis SQL 映射文件的 select 元素、sql 元素进行了学习。本篇，笔者将带你学习 MyBatis SQL 映射文件中的 insert、update、delete元素，这三个可以说是 SQL 映射文件中最为简单的，别愣神，快跟上我。
+**C：** 在上一篇，笔者带大家对 MyBatis SQL 映射文件的 select 元素、sql 元素进行了学习。本篇，笔者将带你学习 MyBatis SQL 映射文件中的 insert、update、delete 元素，这三个可以说是 SQL 映射文件中最为简单的，别愣神，快跟上我。
 
 ![202012271125273](../../../public/img/2020/12/27/202012271125273.jpg)
 
-## insert元素
+## insert 元素
 
-**案例需求：新增用户，PeiQi，18，PeiQi@126.com** 
+**案例需求：新增用户，PeiQi，18，PeiQi@126.com**
 
 首先，在 Mapper 接口中我们添加一个方法。
 
@@ -67,7 +67,7 @@ class TestMyBatis {
             user.setAge(18);
             user.setEmail("PeiQi@126.com");
             int rows = userMapper.insert(user);
-			
+
             System.out.println("影响行数为：" + rows);
         } catch (Exception e) {
             e.printStackTrace();
@@ -76,7 +76,7 @@ class TestMyBatis {
 }
 ```
 
-**控制台输出：** 
+**控制台输出：**
 
 ```sql
 -- 输出的 SQL 语句
@@ -116,9 +116,9 @@ class TestMyBatis {
             user.setAge(18);
             user.setEmail("PeiQi@126.com");
             int rows = userMapper.insert(user);
-			
+
             System.out.println("影响行数为：" + rows);
-			
+
             // 提交事务
             sqlSession.commit();
         } catch (Exception e) {
@@ -138,10 +138,10 @@ class TestMyBatis {
 
 ```xml
 <!-- int insert(User user); -->
-<!-- 
+<!--
     【useGeneratedKeys:】（仅适用于 insert 和 update）表示要获取自动生成的主键
     这会令 MyBatis 使用 JDBC 的 getGeneratedKeys 方法来取出由数据库内部生成的主键
-    （比如：像 MySQL 和 SQL Server 这样的关系型数据库管理系统的自动递增字段），默认值：false。 
+    （比如：像 MySQL 和 SQL Server 这样的关系型数据库管理系统的自动递增字段），默认值：false。
     【keyProperty】:（仅适用于 insert 和 update）表示获取到自动生成主键之后应该映射到对象的哪个属性中
     MyBatis 会使用 getGeneratedKeys 的返回值或 insert 语句的 selectKey 子元素设置它的值，默认值：未设置（unset）。
     如果生成列不止一个，可以用逗号分隔多个属性名称。 [1]
@@ -172,18 +172,18 @@ class TestMyBatis {
             int rows = userMapper.insert(user);
             System.out.println("影响行数为：" + rows);
             System.out.println("插入后：" + user);
-			
+
             // 提交事务
             sqlSession.commit();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-    
+
 }
 ```
 
-**控制台输出：** 
+**控制台输出：**
 
 ```
 插入前：User [id=null, name=PeiQi, age=18, email=PeiQi@126.com]
@@ -191,9 +191,9 @@ class TestMyBatis {
 插入后：User [id=8, name=PeiQi, age=18, email=PeiQi@126.com]
 ```
 
-## update元素
+## update 元素
 
-再来试试 update 元素。**案例需求：将id为1的用户年龄改为20。** 
+再来试试 update 元素。**案例需求：将 id 为 1 的用户年龄改为 20。**
 
 首先，在 Mapper 接口中我们添加一个方法。
 
@@ -236,9 +236,9 @@ class TestMyBatis {
             user.setId(1L);
             user.setAge(20);
             int rows = userMapper.update(user);
-			
+
             System.out.println("影响行数为：" + rows);
-			
+
             // 提交事务
             sqlSession.commit();
         } catch (Exception e) {
@@ -249,7 +249,7 @@ class TestMyBatis {
 }
 ```
 
-**控制台输出：** 
+**控制台输出：**
 
 ```sql
 -- 输出的 SQL 语句
@@ -260,9 +260,9 @@ update user set age = ? where id = ?
 影响行数为：1
 ```
 
-## delete元素
+## delete 元素
 
-再来试试 delete 元素。**案例需求：将id为1的用户删除。** 
+再来试试 delete 元素。**案例需求：将 id 为 1 的用户删除。**
 
 首先，在 Mapper 接口中我们添加一个方法。
 
@@ -302,9 +302,9 @@ class TestMyBatis {
             UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
             // 执行 SQL
             int rows = userMapper.deleteById(1L);
-			
+
             System.out.println("影响行数为：" + rows);
-			
+
             // 提交事务
             sqlSession.commit();
         } catch (Exception e) {
@@ -315,7 +315,7 @@ class TestMyBatis {
 }
 ```
 
-**控制台输出：** 
+**控制台输出：**
 
 ```sql
 -- 输出的 SQL 语句
@@ -339,4 +339,3 @@ delete from user where id = ?
 
 所以在笔者的文章中，前期基本都是小白文，仅仅穿插很少量的源码研究。当然等小白文更新多了，你们还依然喜欢，后期会不定时专门对部分技术的源码进行解析。
 :::
-

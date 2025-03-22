@@ -1,14 +1,14 @@
 ---
 title: 用Java8获取近N天日期
-author: 查尔斯
+author: ting
 date: 2021/11/18 20:55
 categories:
- - 方案春秋志
+  - 方案春秋志
 tags:
- - Java
+  - Java
 ---
 
-# 用Java8获取近N天日期
+# 用 Java8 获取近 N 天日期
 
 ## 前言
 
@@ -23,7 +23,7 @@ tags:
 - Spring Boot 2.3.1.RELEASE
 - MyBatis Plus 3.1.0（使用了 MyBatis Plus 的代码生成器）
 
-## Controller层
+## Controller 层
 
 ```java
 /**
@@ -36,10 +36,10 @@ tags:
 @RestController
 @RequestMapping("/statistics")
 public class StatisticsController {
-    
+
     @Resource
     private IRequestService requestService;
-    
+
     @GetMapping("/request/{days}")
     @ApiOperation(value = "日请求数据统计", notes = "日请求数据统计接口")
     public R<Map<String, Object>> requestByDays(@ApiParam(value = "days", required = true) @PathVariable("days") Integer days) {
@@ -48,7 +48,7 @@ public class StatisticsController {
 }
 ```
 
-## Service层
+## Service 层
 
 ::: tip 笔者说
 Service 层接口内容略，这个应该对你没影响吧？
@@ -63,18 +63,18 @@ Service 层接口内容略，这个应该对你没影响吧？
  */
 @Service
 public class RequestServiceImpl extends ServiceImpl<RequestMapper, Request> implements IRequestService {
-    
+
     @Override
     public Map<String, Object> getRequestTotal(int days) {
         // 响应数据
         Map<String, Object> respMap = MapUtil.newHashMap(2);
-    
+
         // 日期列表
     	List<String> dateList = new ArrayList<>(days);
 		// 请求列表
         List<String> requestList = new ArrayList<>();
         // ...
-    
+
         // 指定日期格式
     	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         // 遍历生成日期列表
@@ -87,16 +87,16 @@ public class RequestServiceImpl extends ServiceImpl<RequestMapper, Request> impl
         	String plusDateStr = formatter.format(plusDate);
             // 添加到日期列表
         	dateList.add(plusDateStr);
-            
+
             // [根据日期查询指定统计数据列表（具体使用时，根据你自己需求决定查询什么表，什么字段...，此处仅为样例）]
 			LambdaQueryWrapper<Request> queryWrapper = Wrappers.lambdaQuery();
             // 拼接 SQL，apply 用法，参见：https://mp.baomidou.com/guide/wrapper.html#apply
 			queryWrapper.apply("date_format(create_time, '%Y-%m-%d') = {0}", plusDateStr);
 			requestList.add(baseMapper.selectCount(queryWrapper).toString());
-            
+
             // ...
     	}
-        
+
         // 添加响应数据
         respMap.put("dateList", dateList);
         respMap.put("requestList", requestList);

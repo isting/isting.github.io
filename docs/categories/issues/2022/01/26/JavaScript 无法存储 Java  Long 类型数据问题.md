@@ -1,11 +1,11 @@
 ---
 title: JavaScript 无法存储 Java Long 类型数据问题
-author: 查尔斯
+author: ting
 date: 2022/01/26 09:07
 categories:
- - Bug万象集
+  - Bug万象集
 tags:
- - JavaScript
+  - JavaScript
 ---
 
 # JavaScript 无法存储 Java Long 类型数据问题
@@ -20,47 +20,47 @@ tags:
 
 ```json {11,16,29,34}
 {
-    "code": 200, 
-    "errorMsg": "", 
-    "result": [
+  "code": 200,
+  "errorMsg": "",
+  "result": [
+    {
+      "extend": null,
+      "items": [
         {
-            "extend": null, 
-            "items": [
-                {
-                    "extend": null, 
-                    "key": "CentOS 8.1 64位", 
-                    "val": 8014753905961037835
-                }, 
-                {
-                    "extend": null, 
-                    "key": "CentOS 8.0 64位", 
-                    "val": 8014753905961037838
-                }, 
-            ], 
-            "key": "CentOS", 
-            "pubProperty": "", 
-            "val": 14
-        }, 
+          "extend": null,
+          "key": "CentOS 8.1 64位",
+          "val": 8014753905961037835
+        },
         {
-            "extend": null, 
-            "items": [
-                {
-                    "extend": null, 
-                    "key": "RedHat Enterprise Linux 8.0 64位", 
-                    "val": 7979917486755315712
-                }, 
-                {
-                    "extend": null, 
-                    "key": "RedHat Enterprise Linux 7.7 64位", 
-                    "val": 8014753905961037829
-                }
-            ], 
-            "key": "Redhat", 
-            "pubProperty": "", 
-            "val": 5
+          "extend": null,
+          "key": "CentOS 8.0 64位",
+          "val": 8014753905961037838
         }
-    ], 
-    "success": true
+      ],
+      "key": "CentOS",
+      "pubProperty": "",
+      "val": 14
+    },
+    {
+      "extend": null,
+      "items": [
+        {
+          "extend": null,
+          "key": "RedHat Enterprise Linux 8.0 64位",
+          "val": 7979917486755315712
+        },
+        {
+          "extend": null,
+          "key": "RedHat Enterprise Linux 7.7 64位",
+          "val": 8014753905961037829
+        }
+      ],
+      "key": "Redhat",
+      "pubProperty": "",
+      "val": 5
+    }
+  ],
+  "success": true
 }
 ```
 
@@ -72,11 +72,11 @@ tags:
 
 笔者相信各位同学都应该猜得到，当提交表单的时候，前端肯定会把选中的镜像的 val 值传递给后端，然后由后端继续进行处理。
 
-但是就在这个环节，由前端传给后端的 val 值竟然错了，例如：当选中了 CentOS 8.1 64 位这个镜像时，本该传递的 val 值为  8014753905961037835，实际传递的却是： 8014753905961038000。
+但是就在这个环节，由前端传给后端的 val 值竟然错了，例如：当选中了 CentOS 8.1 64 位这个镜像时，本该传递的 val 值为 8014753905961037835，实际传递的却是： 8014753905961038000。
 
 后端接口测试的响应数据没问题，那问题显然就是出在前端了。
 
-最终，配合前端开发定位这个问题的原因是因为： JavaScript 中无法存储 Java 中的 Long 类型数据，当位数超过 JavaScript 整数存储的范围，就会以0来代替了。
+最终，配合前端开发定位这个问题的原因是因为： JavaScript 中无法存储 Java 中的 Long 类型数据，当位数超过 JavaScript 整数存储的范围，就会以 0 来代替了。
 
 ![202201260942561](../../../../../public/img/2022/01/26/202201260942561.png)
 
@@ -94,46 +94,46 @@ private Long val;
 
 ```json {11,16,29,34}
 {
-    "code": 200, 
-    "errorMsg": "", 
-    "result": [
+  "code": 200,
+  "errorMsg": "",
+  "result": [
+    {
+      "extend": null,
+      "items": [
         {
-            "extend": null, 
-            "items": [
-                {
-                    "extend": null, 
-                    "key": "CentOS 8.1 64位", 
-                    "val": "8014753905961037835"
-                }, 
-                {
-                    "extend": null, 
-                    "key": "CentOS 8.0 64位", 
-                    "val": "8014753905961037838"
-                }, 
-            ], 
-            "key": "CentOS", 
-            "pubProperty": "", 
-            "val": 14
-        }, 
+          "extend": null,
+          "key": "CentOS 8.1 64位",
+          "val": "8014753905961037835"
+        },
         {
-            "extend": null, 
-            "items": [
-                {
-                    "extend": null, 
-                    "key": "RedHat Enterprise Linux 8.0 64位", 
-                    "val": "7979917486755315712"
-                }, 
-                {
-                    "extend": null, 
-                    "key": "RedHat Enterprise Linux 7.7 64位", 
-                    "val": "8014753905961037829"
-                }
-            ], 
-            "key": "Redhat", 
-            "pubProperty": "", 
-            "val": 5
+          "extend": null,
+          "key": "CentOS 8.0 64位",
+          "val": "8014753905961037838"
         }
-    ], 
-    "success": true
+      ],
+      "key": "CentOS",
+      "pubProperty": "",
+      "val": 14
+    },
+    {
+      "extend": null,
+      "items": [
+        {
+          "extend": null,
+          "key": "RedHat Enterprise Linux 8.0 64位",
+          "val": "7979917486755315712"
+        },
+        {
+          "extend": null,
+          "key": "RedHat Enterprise Linux 7.7 64位",
+          "val": "8014753905961037829"
+        }
+      ],
+      "key": "Redhat",
+      "pubProperty": "",
+      "val": 5
+    }
+  ],
+  "success": true
 }
 ```

@@ -1,20 +1,20 @@
 ---
 title: CentOS 8.2 安装 JDK 1.8.0_202
-author: 查尔斯
+author: ting
 date: 2022/10/23 11:29
 categories:
- - Java基础快速入门
+  - Java基础快速入门
 tags:
- - Java
- - JDK
- - Linux
- - CentOS
+  - Java
+  - JDK
+  - Linux
+  - CentOS
 showComment: false
 ---
 
 # CentOS 8.2 安装 JDK 1.8.0_202
 
-## 检查系统是否自带JDK
+## 检查系统是否自带 JDK
 
 ::: warning 笔者说
 检查系统中是否已经安装了 JDK ，安装的基本是 OpenJDK，如果已经安装了，那就提前卸载掉它。

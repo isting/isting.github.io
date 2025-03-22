@@ -1,14 +1,14 @@
 ---
 title: for循环中删除集合元素隐藏的陷阱
-author: 查尔斯
+author: ting
 date: 2021/12/08 20:00
 categories:
- - Bug万象集
+  - Bug万象集
 tags:
- - Java集合
+  - Java集合
 ---
 
-# for循环中删除集合元素隐藏的陷阱
+# for 循环中删除集合元素隐藏的陷阱
 
 ## 前言
 
@@ -16,7 +16,7 @@ tags:
 
 这部分需求的主要目的是将集合中指定的元素删除掉，而这位同事采用的方法是用 for 循环来循环集合索引，然后通过索引从集合中取出每一个元素，判断是否是要删除的元素，如果是就直接删除掉。
 
-**大概意思的代码，如下：** 
+**大概意思的代码，如下：**
 
 ```java {11,15}
 // 创建集合，并初始化数据
@@ -42,7 +42,7 @@ System.out.println(list); // [1, 3, 4]
 
 ## 测试代码
 
-### 基础for循环中删除
+### 基础 for 循环中删除
 
 直接放代码吧，下方是使用基础的 for 循环（循环索引）来实现的集合元素删除，比之 前言 中的代码，无非是要删除的元素 2 有重复，变成了两个。
 
@@ -134,7 +134,7 @@ public class ListRemoveEleInForLoopTest {
 
 **原因很简单：** ArrayList 是基于数组结构而来的，在实现 E remove(int index) 方法时，也是在操作数组而已。
 
-**E remove(int index) 方法的源代码，如下：** 
+**E remove(int index) 方法的源代码，如下：**
 
 ```java {20,25}
 /**
@@ -162,12 +162,12 @@ public E remove(int index) {
     // 例如：[1, 2, 3, 4] -> [1, 3, 4, 4]
     // 最后一个4就是多余的，置为默认值 null
     elementData[--size] = null; // clear to let GC do its work
-	
+
     return oldValue;
 }
 ```
 
-这样的话就会导致，在循环索引中删除完某个元素，其后面的元素移动到这个元素的位置，但是循环的索引可没回退，这样在取值时就会 **跳过下一个元素** 。（看不懂的话，可以debug一下，很清晰的）
+这样的话就会导致，在循环索引中删除完某个元素，其后面的元素移动到这个元素的位置，但是循环的索引可没回退，这样在取值时就会 **跳过下一个元素** 。（看不懂的话，可以 debug 一下，很清晰的）
 
 如果被删除元素的下一个元素不是匹配条件的，那还问题不显，但是如果被删除元素的下一个元素也是匹配条件的，也就会出现刚才测试的结果了。
 
@@ -215,7 +215,7 @@ public class ListRemoveEleInForLoopTest {
 }
 ```
 
-### 增强for循环中删除
+### 增强 for 循环中删除
 
 显然，在基础 for 循环中删除元素，这种方法并不是最好的，那我们就再来看看其他的循环方式吧。
 
@@ -345,7 +345,7 @@ public class ListRemoveEleInForLoopTest {
 }
 ```
 
-**Collection 接口的 removeIf() 方法的源代码，如下：** 
+**Collection 接口的 removeIf() 方法的源代码，如下：**
 
 ```java {27,30}
 public interface Collection<E> extends Iterable<E> {
@@ -383,7 +383,7 @@ public interface Collection<E> extends Iterable<E> {
         }
         return removed;
     }
-    
+
     // 省略其他代码...
 }
 ```

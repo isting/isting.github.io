@@ -1,13 +1,13 @@
 ---
 title: Docker 安装 MySQL 详细步骤
-author: 查尔斯
+author: ting
 date: 2022/10/30 17:36
 categories:
- - MySQL快速入门
+  - MySQL快速入门
 tags:
- - MySQL
- - Docker
- - 容器
+  - MySQL
+  - Docker
+  - 容器
 showComment: false
 ---
 
@@ -73,12 +73,12 @@ docker run -d \
 
 服务器开放好相应端口或设置好安全组规则后，直接用 Navicat 连接即可。
 
-## Docker Compose脚本
+## Docker Compose 脚本
 
 如果你是用的 docker-compose 来安装，下方附上相应 docker-compose.yml 脚本内容。
 
 ```yaml
-version: '3'
+version: "3"
 services:
   mysql:
     container_name: mysql
@@ -104,7 +104,7 @@ services:
 docker-compose up -d
 ```
 
-## 附：安装MariaDB
+## 附：安装 MariaDB
 
 ### 运行容器
 
@@ -123,10 +123,10 @@ docker run -d \
 --privileged=true
 ```
 
-### Docker Compose脚本
+### Docker Compose 脚本
 
 ```yaml
-version: '3'
+version: "3"
 services:
   mariadb:
     container_name: mariadb
@@ -145,4 +145,3 @@ services:
       - /opt/disk/docker/volumes/mysql/data:/var/lib/mysql
     privileged: true
 ```
-
