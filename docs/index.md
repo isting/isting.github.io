@@ -5,7 +5,7 @@ layout: home
 hero:
   name: "My Awesome Project"
   text: "A VitePress Site"
-  tagline: 每天有进步~
+  tagline: 个人知识库,记录 & 学习 & 分享
   actions:
     - theme: brand
       text: Markdown Examples
