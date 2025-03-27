@@ -8,10 +8,10 @@ hero:
   tagline: 个人知识库,记录 & 学习 & 分享
   actions:
     - theme: brand
-      text: Markdown Examples_
+      text: _Markdown Examples_
       link: /markdown-examples
     - theme: alt
-      text: API Examples_
+      text: _API Examples_
       link: /api-examples
 
 features:
