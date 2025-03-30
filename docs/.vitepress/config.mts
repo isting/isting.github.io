@@ -13,8 +13,18 @@ export default defineConfig({
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      { text: "Home", link: "/" },
-      { text: "Examples", link: "/markdown-examples" },
+      {
+        text: "每日有进步",
+        items: [],
+      },
+      {
+        text: "2025",
+        // link: "/markdown-examples",
+        items: [],
+      },
+      { text: "学习笔记", items: [] },
+      // { text: "2025", link: "/markdown-examples" },
+      { text: "关于我", link: "/markdown-examples" },
     ],
 
     sidebar: [
@@ -26,7 +36,6 @@ export default defineConfig({
         ],
       },
     ],
-
     socialLinks: [{ icon: "github", link: "https://github.com/isting" }],
   },
 });
