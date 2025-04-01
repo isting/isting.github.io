@@ -3,8 +3,8 @@ import { metaData } from "./constants";
 
 export const head: HeadConfig[] = [
   ["link", { rel: "icon", href: "/favicon.ico" }],
-  ["meta", { name: "author", content: "Charles7c" }],
-  ["meta", { name: "keywords", content: "知识库, 知识库, 博客" }],
+  ["meta", { name: "author", content: "ting" }],
+  ["meta", { name: "keywords", content: "知识库, 知识库, 博客1" }],
 
   ["meta", { name: "HandheldFriendly", content: "True" }],
   ["meta", { name: "MobileOptimized", content: "320" }],
