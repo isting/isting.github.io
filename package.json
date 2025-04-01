@@ -5,7 +5,9 @@
     "preview": "vitepress preview docs"
   },
   "devDependencies": {
-    "vitepress": "^1.6.3"
+    "vitepress": "^1.6.3",
+    "vitepress-plugin-51la": "^0.1.0",
+    "vitepress-plugin-announcement": "^0.1.4"
   },
   "pnpm": {
     "ignoredBuiltDependencies": [
@@ -14,7 +16,8 @@
   },
   "dependencies": {
     "@arco-design/web-vue": "^2.57.0",
-    "axios": "^1.8.4"
+    "axios": "^1.8.4",
+    "vitepress-markdown-timeline": "1.2.0"
   },
   "packageManager": "pnpm@9.0.5+sha1.6db99351548f394a1d96aa1de98dec032aef8823"
 }
