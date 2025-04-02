@@ -15,26 +15,34 @@ export default defineConfig({
     nav: [
       {
         text: "每日有进步",
-        items: [],
+        link: "/today",
+        // items: [],
       },
       {
         text: "2025",
         // link: "/markdown-examples",
         items: [],
       },
-      { text: "学习笔记", items: [] },
-      // { text: "2025", link: "/markdown-examples" },
-      { text: "关于我", link: "/markdown-examples" },
-    ],
-
-    sidebar: [
       {
-        text: "Examples",
+        text: "学习笔记",
         items: [
-          { text: "Markdown Examples", link: "/markdown-examples" },
-          { text: "Runtime API Examples", link: "/api-examples" },
+          { text: "Vue3", link: "/vue3" },
+          { text: "AI", link: "/ai" },
+          { text: "面试相关", link: "/interview" },
+          // { text: "手写代码", link: "/interview/write" },
         ],
       },
+      // { text: "2025", link: "/markdown-examples" },
+      { text: "关于我", link: "/about" },
+    ],
+    sidebar: [
+      // {
+      //   text: "Examples",
+      //   items: [
+      //     { text: "Markdown Examples", link: "/markdown-examples" },
+      //     { text: "Runtime API Examples", link: "/api-examples" },
+      //   ],
+      // },
     ],
     socialLinks: [{ icon: "github", link: "https://github.com/isting" }],
   },

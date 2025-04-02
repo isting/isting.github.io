@@ -6,13 +6,16 @@ hero:
   name: "我的个人知识库"
   # text: "A VitePress Site"
   tagline: 个人知识库,记录 & 学习 & 分享
+  image:
+    src: /logo.png
+    alt: Logo
   actions:
     - theme: brand
-      text: 快速开始
-      link: /markdown-examples
-    - theme: alt
       text: 每日有进步
-      link: /api-examples
+      link: /today
+    # - theme: alt
+    #   text: 每日有进步
+    #   link: /today
 features:
   - title: Feature A
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
