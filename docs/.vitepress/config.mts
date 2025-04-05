@@ -1,4 +1,5 @@
 import { defineConfig } from "vitepress";
+import timeline from "vitepress-markdown-timeline";
 import { head } from "./config/head";
 
 // https://vitepress.dev/reference/site-config
@@ -48,5 +49,10 @@ export default defineConfig({
       // },
     ],
     socialLinks: [{ icon: "github", link: "https://github.com/isting" }],
+  },
+  markdown: {
+    config: (md) => {
+      md.use(timeline);
+    },
   },
 });

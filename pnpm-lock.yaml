@@ -14,6 +14,9 @@ importers:
       axios:
         specifier: ^1.8.4
         version: 1.8.4
+      vitepress-markdown-timeline:
+        specifier: ^1.2.2
+        version: 1.2.2
     devDependencies:
       vitepress:
         specifier: ^1.6.3
@@ -898,6 +901,9 @@ packages:
         optional: true
       terser:
         optional: true
+
+  vitepress-markdown-timeline@1.2.2:
+    resolution: {integrity: sha512-eDFcvudmTW33pI7XdT+ZeUPvpc4CPXI0LZbsZZ54j36G56AN6qYEBiwZpDHl77E4QvqAIJMc8phXXvm7P/Lc+Q==}
 
   vitepress@1.6.3:
     resolution: {integrity: sha512-fCkfdOk8yRZT8GD9BFqusW3+GggWYZ/rYncOfmgcDtP3ualNHCAg+Robxp2/6xfH1WwPHtGpPwv7mbA3qomtBw==}
@@ -1790,6 +1796,10 @@ snapshots:
       rollup: 4.36.0
     optionalDependencies:
       fsevents: 2.3.3
+
+  vitepress-markdown-timeline@1.2.2:
+    dependencies:
+      dayjs: 1.11.13
 
   vitepress@1.6.3(@algolia/client-search@5.21.0)(axios@1.8.4)(postcss@8.5.3)(search-insights@2.17.3):
     dependencies:
