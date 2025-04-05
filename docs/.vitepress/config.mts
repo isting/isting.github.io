@@ -16,7 +16,6 @@ export default defineConfig({
       {
         text: "每日有进步",
         link: "/today",
-        // items: [],
       },
       {
         text: "AI",
@@ -24,19 +23,20 @@ export default defineConfig({
       },
       {
         text: "2025",
-        // link: "/markdown-examples",
         items: [],
+        // link: "/markdown-examples",
       },
       {
         text: "学习笔记",
         items: [
           { text: "Vue3", link: "/vue3" },
           { text: "面试相关", link: "/interview" },
+          // { text: "bug记录", link: "/bug" },
           // { text: "手写代码", link: "/interview/write" },
         ],
       },
-      // { text: "2025", link: "/markdown-examples" },
       { text: "关于我", link: "/about" },
+      // { text: "2025", link: "/markdown-examples" },
     ],
     sidebar: [
       // {
