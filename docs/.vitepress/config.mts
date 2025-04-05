@@ -19,6 +19,10 @@ export default defineConfig({
         // items: [],
       },
       {
+        text: "AI",
+        link: "/ai",
+      },
+      {
         text: "2025",
         // link: "/markdown-examples",
         items: [],
@@ -27,7 +31,6 @@ export default defineConfig({
         text: "学习笔记",
         items: [
           { text: "Vue3", link: "/vue3" },
-          { text: "AI", link: "/ai" },
           { text: "面试相关", link: "/interview" },
           // { text: "手写代码", link: "/interview/write" },
         ],
