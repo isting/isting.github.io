@@ -7,15 +7,21 @@
   "devDependencies": {
     "vitepress": "^1.6.3"
   },
-  "pnpm": {
-    "ignoredBuiltDependencies": [
-      "esbuild"
-    ]
-  },
   "dependencies": {
     "@arco-design/web-vue": "^2.57.0",
     "axios": "^1.8.4",
-    "vitepress-markdown-timeline": "^1.2.2"
+    "vitepress-markdown-timeline": "^1.2.2",
+    "vitepress-sidebar": "^1.31.1"
+  },
+  "pnpm": {
+    "ignoredBuiltDependencies": [
+      "esbuild"
+    ],
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "@algolia/client-search"
+      ]
+    }
   },
   "packageManager": "pnpm@9.0.5+sha1.6db99351548f394a1d96aa1de98dec032aef8823"
 }
