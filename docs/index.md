@@ -4,7 +4,7 @@ layout: home
 
 hero:
   name: "我的个人知识库"
-  # text: "A VitePress Site"
+  # text: "个人随记,不保证严谨"
   tagline: 个人知识库,记录 & 学习 & 分享
   image:
     src: /logo.png
@@ -13,9 +13,9 @@ hero:
     - theme: brand
       text: 每日有进步
       link: /today
-    # - theme: alt
-    #   text: 每日有进步
-    #   link: /today
+    - theme: alt
+      text: 关于我
+      link: /about
 features:
   - title: 记录
     details: 强化记忆、提升效率、促进反思、提供依据、传承经验，助力成长与决策。
