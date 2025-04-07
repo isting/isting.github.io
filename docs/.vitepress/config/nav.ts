@@ -27,6 +27,7 @@ export const nav: DefaultTheme.Config["nav"] = [
       // { text: "后端", link: "/study" },
     ],
   },
+  { text: "收藏与分享", link: "/share" },
   { text: "关于我", link: "/about" },
   // { text: "2025", link: "/markdown-examples" },
 ];
