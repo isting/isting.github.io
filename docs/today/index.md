@@ -1,3 +1,7 @@
+<script  lang="ts">
+
+</script>
+
 ::: timeline 2023-05-24 <small style="font-size:10px">这是小一号的文字。</small>
 
 - **do some thing1**
