@@ -19,6 +19,7 @@ export const nav: DefaultTheme.Config["nav"] = [
     items: [
       { text: "Vue3", link: "/frontend/vue3" },
       { text: "面试相关", link: "/interview" },
+      { text: "VueUse", link: "/frontend/vueuse" },
       // { text: "bug记录", link: "/bug" },
       // { text: "手写代码", link: "/interview/write" },
       // { text: "碎片", link: "/interview/write" },
