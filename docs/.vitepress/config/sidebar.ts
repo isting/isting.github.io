@@ -8,6 +8,15 @@ interface TimelineOptions {
 export const sidebar: DefaultTheme.Config["sidebar"] = {
   "/today": [
     {
+      text: "css 动画分类",
+      link: "/frontend/css-animation",
+      // timelineOptions: {
+      //   time: "2025-04-07 11:34:18",
+      //   desc: "",
+      //   tag: [],
+      // },
+    },
+    {
       text: "vueuse 简单了解",
       link: "/frontend/vueuse",
       // timelineOptions: {
