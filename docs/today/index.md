@@ -1,20 +1,21 @@
-<script  lang="ts">
+---
+title: 项目时间线
+---
 
+<!-- 引入自定义组件 -->
+<Timeline :data="sidebarItems" />
+
+<!-- 脚本部分：获取侧边栏数据并处理 -->
+<script setup>
+import { useData } from 'vitepress'
+import Timeline from '../.vue-components/Timeline.vue'
+
+// 获取当前页面的侧边栏数据
+const {theme} = useData()
+const sidebar = theme.value.sidebar
+
+// 提取侧边栏中的 items 数据（根据实际结构调整）
+const sidebarItems = sidebar['/today'] || []
+
+console.log('88', sidebar)
 </script>
-
-::: timeline css 动画分类 <small style="font-size:12px">2025-11-05</small>
-
-:::
-
-::: timeline vueuse 简单了解 <small style="font-size:12px">2025-04-07</small>
-
-1. vueuse 是一个基于 Vue 3 的实用工具库，提供了许多常用的工具函数和组合函数，用于简化 Vue 3 应用程序的开发。
-2. 目的
-   2.1 减少重复性工作
-   2.2 提高开发效率
-   2.3 提供更好的开发体验
-   :::
-
-::: timeline 个人工具使用 <small style="font-size:12px">2025-04-07</small>
-
-:::
