@@ -13,6 +13,8 @@
   "dependencies": {
     "@giscus/vue": "^3.1.1",
     "axios": "^1.8.4",
+    "fast-glob": "^3.3.3",
+    "gray-matter": "^4.0.3",
     "vitepress-markdown-timeline": "^1.2.2",
     "vitepress-sidebar": "^1.31.1",
     "vue": "^3.5.13"

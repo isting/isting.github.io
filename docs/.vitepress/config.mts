@@ -1,7 +1,6 @@
 import { defineConfig } from "vitepress";
 import timeline from "vitepress-markdown-timeline";
 import { head } from "./config/head";
-import { withSidebar } from "vitepress-sidebar";
 import { nav } from "./config/nav";
 import { sidebar } from "./config/sidebar";
 
