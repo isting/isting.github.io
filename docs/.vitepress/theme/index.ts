@@ -6,7 +6,7 @@ import "./styles/custom.css";
 import Layout from "./components/Layout.vue";
 
 // 只需添加以下一行代码，引入时间线样式
-import "vitepress-markdown-timeline/dist/theme/index.css";
+// import "vitepress-markdown-timeline/dist/theme/index.css";
 
 export default {
   ...Theme,

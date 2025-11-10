@@ -1,5 +1,4 @@
 import { defineConfig } from "vitepress";
-import timeline from "vitepress-markdown-timeline";
 import { head } from "./config/head";
 import { nav } from "./config/nav";
 import { sidebar } from "./config/sidebar";
@@ -20,7 +19,7 @@ export default defineConfig({
   },
   markdown: {
     config: (md) => {
-      md.use(timeline);
+      // md.use(timeline);
     },
   },
 });
