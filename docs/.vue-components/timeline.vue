@@ -42,6 +42,7 @@ import { useGlobalMd } from "../.vue-hooks/useGlobalMd.js";
 const { timelineData } = useGlobalMd();
 
 const toDetails = (item: any) => {
+  //
   window.open("/" + item.path, "_blank");
 };
 </script>
