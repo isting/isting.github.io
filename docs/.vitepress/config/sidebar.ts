@@ -6,22 +6,11 @@ import { generateSidebar } from "vitepress-sidebar";
 //   tag: string[];
 // }
 
-// console.log(
-//   '侧边栏调试',
-//   JSON.stringify(
-//     generateSidebar({
-//       documentRootPath: "/docs",
-//       scanStartPath: "/interview",
-//       // resolvePath: "interview",
-//       // basePath: "interview",
-//     })
-//   )
-// );
 export const sidebar: DefaultTheme.Config["sidebar"] = {
   "/today": generateSidebar({
     documentRootPath: "/docs",
     scanStartPath: "/today",
-    collapseDepth: 3,
+    collapseDepth: 2,
     useTitleFromFileHeading: true,
     collapsed: true,
   }) as any,
@@ -29,8 +18,15 @@ export const sidebar: DefaultTheme.Config["sidebar"] = {
     documentRootPath: "/docs",
     scanStartPath: "/interview",
     useTitleFromFileHeading: true,
-    collapseDepth: 3,
+    collapseDepth: 2,
     collapsed: true,
+    // 排序
+    manualSortFileNameByPriority: [
+      // "从输入 url 到呈现到页面上.md",
+      // "2025年10月面经.md",
+    ],
+    // sortFolderTo: "bottom", // 文件夹排序方式
+    debugPrint: false,
   }) as any,
   // "/frontend/vue3": [],
   // "/share": [
