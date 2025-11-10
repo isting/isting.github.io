@@ -31,15 +31,21 @@ export const sidebar: DefaultTheme.Config["sidebar"] = {
     useTitleFromFileHeading: true,
     collapsed: true,
   }) as any,
-  "/frontend/vue3": [],
-  "/share": [
-    {
-      text: "收藏与分享",
-      link: "/share/",
-      items: [
-        { text: "站点分享", link: "/share/collection" },
-        { text: "工具分享", link: "/share/share" },
-      ],
-    },
-  ],
+  "/interview": generateSidebar({
+    documentRootPath: "/docs/interview",
+    collapseDepth: 3,
+    useTitleFromFileHeading: true,
+    collapsed: true,
+  }) as any,
+  // "/frontend/vue3": [],
+  // "/share": [
+  //   {
+  //     text: "收藏与分享",
+  //     link: "/share/",
+  //     items: [
+  //       { text: "站点分享", link: "/share/collection" },
+  //       { text: "工具分享", link: "/share/share" },
+  //     ],
+  //   },
+  // ],
 };
