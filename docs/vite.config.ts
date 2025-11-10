@@ -5,7 +5,7 @@ import { ArcoResolver } from "unplugin-vue-components/resolvers";
 export default defineConfig({
   plugins: [
     Components({
-      dirs: [".vue-components"],
+      dirs: ["_vue-components"],
       include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
       resolvers: [ArcoResolver({ sideEffect: true, resolveIcons: true })],
     }) as any,

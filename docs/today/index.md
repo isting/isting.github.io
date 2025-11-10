@@ -11,5 +11,5 @@ description: "这是描述"
 <Timeline />
 
 <script setup>
-import Timeline from '../.vue-components/Timeline.vue'
+import Timeline from '../_vue-components/Timeline.vue'
 </script>

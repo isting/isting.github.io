@@ -38,7 +38,7 @@
 </template>
 
 <script setup lang="ts">
-import { useGlobalMd } from "../.vue-hooks/useGlobalMd.js";
+import { useGlobalMd } from "../_vue-hooks/useGlobalMd.js";
 const { timelineData } = useGlobalMd();
 
 const toDetails = (item: any) => {
