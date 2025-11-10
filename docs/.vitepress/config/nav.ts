@@ -9,7 +9,18 @@ export const nav: DefaultTheme.Config["nav"] = [
     text: "AI",
     link: "/ai",
   },
-  { text: "面试相关", link: "/interview" },
+  {
+    text: "我的博客",
+    // link: "/study",
+    items: [
+      { text: "^_^", link: "/study/plan" },
+      { text: "最佳实践", link: "/study/bestWay" },
+    ],
+  },
+  {
+    text: "面试相关",
+    link: "/interview",
+  },
   { text: "关于我", link: "/about" },
   // {
   //   text: "2025",
