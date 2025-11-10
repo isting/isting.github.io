@@ -1,3 +1,12 @@
+---
+title: CSS Animation 分类
+timeline: true
+subtitle: ""
+tags: ["前端", "面试", "职场"]
+time: "2025-11-01 00:00:00"
+description: "CSS Animation 分类"
+---
+
 # CSS Animation 分类
 
 > 来自豆包 2025-11-05 11:49:17

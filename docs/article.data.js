@@ -1,9 +1,12 @@
 import fs from "node:fs";
-import path from "node:path";
 import parseFrontmatter from "gray-matter";
 
+/**
+ * vitepress  语法
+ * https://vitepress.dev/zh/guide/data-loading#data-from-local-files
+ */
 export default {
-  watch: ["./docs/**/*.md"],
+  watch: ["./**/*.md"],
   load(watchedFiles) {
     // 解析文章 Frontmatter
     return watchedFiles.map((articleFile) => {

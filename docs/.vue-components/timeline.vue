@@ -6,19 +6,22 @@
       class="timeline-item"
     >
       <!-- 左侧年月标签，同月只显示一次 -->
-      <div v-if="item.showYearMonth" class="timeline-year-month">
+      <!-- <div v-if="item.showYearMonth" class="timeline-year-month">
         {{ item.yearMonth }}
-      </div>
+      </div> -->
       <div class="timeline-content">
         <div class="timeline-header">
-          <a :href="item.link" class="timeline-title">{{ item.text }}</a>
+          <!-- <a :href="item.path" class="timeline-title">{{ item.title }} </a> -->
+          <span @click="toDetails(item)" class="timeline-title"
+            >{{ item.title }}
+          </span>
           <span v-if="item.subtitle" class="timeline-subtitle">{{
             item.subtitle
           }}</span>
         </div>
         <!-- 右侧具体日期 -->
-        <div class="timeline-specific-date">{{ item.specificDate }}</div>
-        <div v-if="item.tags && item.tags.length" class="timeline-tags">
+        <div class="timeline-specific-date">{{ item.time }}</div>
+        <div v-if="item.tags?.length" class="timeline-tags">
           <span
             v-for="(tag, tagIndex) in item.tags"
             :key="tagIndex"
@@ -35,58 +38,12 @@
 </template>
 
 <script setup lang="ts">
-import { computed, withDefaults } from "vue";
+import { useGlobalMd } from "../.vue-hooks/useGlobalMd.js";
+const { timelineData } = useGlobalMd();
 
-// 定义传入的时间线数据格式
-const props = withDefaults(
-  defineProps<{
-    data?: Array<{
-      text: string;
-      link: string;
-      date: string;
-      subtitle?: string;
-      tags?: string[];
-      description?: string;
-    }>;
-  }>(),
-  {
-    data: () => [],
-  }
-);
-
-// 格式化日期并处理同月只显示一次
-const timelineData = computed(() => {
-  if (!props.data || props.data.length === 0) {
-    return [];
-  }
-
-  const sorted = [...props.data]
-    .filter((item) => item && item.date)
-    .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
-
-  let lastYearMonth = "";
-
-  return sorted.map((item) => {
-    const date = new Date(item.date);
-    const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, "0");
-    const day = String(date.getDate()).padStart(2, "0");
-
-    const yearMonth = `${year}-${month}`;
-    const showYearMonth = yearMonth !== lastYearMonth;
-
-    if (showYearMonth) {
-      lastYearMonth = yearMonth;
-    }
-
-    return {
-      ...item,
-      yearMonth: `${year}-${month}`,
-      specificDate: `${month}-${day}`,
-      showYearMonth,
-    };
-  });
-});
+const toDetails = (item: any) => {
+  window.open("/" + item.path, "_blank");
+};
 </script>
 
 <style scoped>
@@ -168,6 +125,7 @@ const timelineData = computed(() => {
   font-weight: 500;
   font-size: 16px;
   transition: color 0.15s ease;
+  cursor: pointer;
 }
 
 .timeline-title:hover {
