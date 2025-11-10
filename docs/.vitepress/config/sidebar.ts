@@ -1,40 +1,36 @@
 import type { DefaultTheme } from "vitepress";
-interface TimelineOptions {
-  time: string;
-  desc: string;
-  tag: string[];
-}
+import { generateSidebar } from "vitepress-sidebar";
+// interface TimelineOptions {
+//   time: string;
+//   desc: string;
+//   tag: string[];
+// }
 
+// const todayList: any = generateSidebar({
+//   documentRootPath: "/docs/today",
+//   collapseDepth: 3, // 折叠层级
+//   useTitleFromFileHeading: true, // 从文件标题提取名称
+//   collapsed: true, // 默认折叠sortMenusByName: true, // 排序
+//   // sortMenusOrderNumericallyFromTitle: true, // 数字排序
+//   // sortMenusByFrontmatterOrder: true, // 前端排序
+//   // sortMenusByFrontmatterDate: true, // 前端排序
+//   // sortMenusOrderByDescending: true, // 降序
+//   // sortFolderTo: "top", // 排序到顶部
+//   // rootGroupText: "今日总结", // 根目录名称
+//   // rootGroupLink: "/today/", // 根目录链接
+//   // rootGroupCollapsed: true, // 根目录默认折叠
+//   // // excludePattern: ["**/index.md", "**/README.md"], // 排除文件
+//   // excludePattern: ["**/README.md"], // 排除文件
+// });
+
+// console.log(777, JSON.stringify(todayList));
 export const sidebar: DefaultTheme.Config["sidebar"] = {
-  "/today": [
-    {
-      text: "css 动画分类",
-      link: "/frontend/css-animation",
-      // timelineOptions: {
-      //   time: "2025-04-07 11:34:18",
-      //   desc: "",
-      //   tag: [],
-      // },
-    },
-    {
-      text: "vueuse 简单了解",
-      link: "/frontend/vueuse",
-      // timelineOptions: {
-      //   time: "2025-04-07 11:34:18",
-      //   desc: "",
-      //   tag: [],
-      // },
-    },
-    {
-      text: "工具库的使用",
-      link: "/share/",
-      // timelineOptions: {
-      //   time: "2025-04-07 11:34:18",
-      //   desc: "",
-      //   tag: [],
-      // },
-    },
-  ],
+  "/today": generateSidebar({
+    documentRootPath: "/docs/today",
+    collapseDepth: 3,
+    useTitleFromFileHeading: true,
+    collapsed: true,
+  }) as any,
   "/frontend/vue3": [],
   "/share": [
     {
@@ -45,13 +41,5 @@ export const sidebar: DefaultTheme.Config["sidebar"] = {
         { text: "工具分享", link: "/share/share" },
       ],
     },
-    // {
-    //   text: "减肥心得",
-    //   link: "/share/",
-    //   items: [
-    //     { text: "站点分享", link: "/share/collection" },
-    //     { text: "工具分享", link: "/share/share" },
-    //   ],
-    // },
   ],
 };
