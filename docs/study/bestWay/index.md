@@ -1,5 +1,5 @@
 # 最佳实践
 
 > 这里记录一些最佳实践，每周整理提交一次, 包括但不限于：
->
-> - [mybatisX-插件生成模板](./mybatisX-%E6%8F%92%E4%BB%B6%E7%94%9F%E6%88%90%E6%A8%A1%E6%9D%BF.md)
+
+> - [mybatisX-插件生成模板](./spring/mybatisX-%E6%8F%92%E4%BB%B6%E7%94%9F%E6%88%90%E6%A8%A1%E6%9D%BF.md)
