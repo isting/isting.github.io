@@ -45,6 +45,8 @@ export const sidebar: DefaultTheme.Config["sidebar"] = {
     collapseDepth: 2,
     useTitleFromFileHeading: true,
     collapsed: true,
+    sortFolderTo: "top", // 文件夹排序方式
+    debugPrint: false,
   }) as any,
   // 学习计划
   "/study/plan": generateSidebar({
@@ -54,6 +56,7 @@ export const sidebar: DefaultTheme.Config["sidebar"] = {
     useTitleFromFileHeading: true,
     collapsed: true,
   }) as any,
+
   // "/frontend/vue3": [],
   // "/share": [
   //   {

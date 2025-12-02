@@ -1,4 +1,4 @@
-# mybatisX-插件生成模板 doc
+# 1. mybatisX-插件生成模板 doc
 
 ![](/image/mybatisx-1.jpg)  
 ![](/image/mybatisx-2.jpg)
