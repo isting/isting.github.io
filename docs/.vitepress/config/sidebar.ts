@@ -44,6 +44,7 @@ export const sidebar: DefaultTheme.Config["sidebar"] = {
     scanStartPath: "/study/bestWay",
     collapseDepth: 2,
     useTitleFromFileHeading: true,
+    sortMenusOrderNumericallyFromTitle: true, // 排序：按标题中的数字前缀进行数值排序（如 01-xxx、2-xxx）
     collapsed: true,
     sortFolderTo: "top", // 文件夹排序方式
     debugPrint: false,
