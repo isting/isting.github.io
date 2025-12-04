@@ -3,7 +3,6 @@ import Components from "unplugin-vue-components/vite";
 import { ArcoResolver } from "unplugin-vue-components/resolvers";
 
 export default defineConfig({
-  assetsInclude: ["**/*.md"],
   plugins: [
     Components({
       dirs: ["_vue-components"],
