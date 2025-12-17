@@ -3,3 +3,10 @@
 > 这里记录一些最佳实践，每周整理提交一次, 包括但不限于：
 
 > - [mybatisX-插件生成模板](./spring/mybatisX-%E6%8F%92%E4%BB%B6%E7%94%9F%E6%88%90%E6%A8%A1%E6%9D%BF.md)
+
+面试相关的站点
+
+> - [前端进阶之旅](https://interview.poetries.top/)
+> - [面试鸭](https://www.mianshiya.com/)
+> - [力扣](https://leetcode-cn.com/)
+> - [前端面试派](https://www.mianshipai.com/)
