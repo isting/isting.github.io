@@ -39,9 +39,9 @@ export const sidebar: DefaultTheme.Config["sidebar"] = {
     collapsed: true,
   }) as any,
   // 最佳实践
-  "/study/bestWay": generateSidebar({
+  "/study/best-way": generateSidebar({
     documentRootPath: "/docs",
-    scanStartPath: "/study/bestWay",
+    scanStartPath: "/study/best-way",
     collapseDepth: 2,
     useTitleFromFileHeading: true,
     sortMenusOrderNumericallyFromTitle: true, // 排序：按标题中的数字前缀进行数值排序（如 01-xxx、2-xxx）

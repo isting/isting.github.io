@@ -18,7 +18,7 @@ export const nav: DefaultTheme.Config["nav"] = [
   //   text: "我的博客",
   //   items: [
   //     { text: "^_^", link: "/study/plan" },
-  //     { text: "最佳实践", link: "/study/bestWay" },
+  //     { text: "最佳实践", link: "/study/best-way" },
   //   ],
   // },
   // {
